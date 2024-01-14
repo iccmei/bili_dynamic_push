@@ -1,3 +1,5 @@
+# 强烈推荐使用功能更全的【✨多合一动态检测与推送✨】：https://github.com/nfe-w/aio-dynamic-push
+
 # bili_dynamic_push
 
 ## 声明:
@@ -5,12 +7,21 @@
 - 本仓库发布的`bili_dynamic_push`项目中涉及的任何脚本，仅用于测试和学习研究，禁止用于商业用途
 - `nfe-w` 对任何脚本问题概不负责，包括但不限于由任何脚本错误导致的任何损失或损害
 - 以任何方式查看此项目的人或直接或间接使用`bili_dynamic_push`项目的任何脚本的使用者都应仔细阅读此声明
-- `bili_dynamic_push` 保留随时更改或补充此免责声明的权利。一旦使用并复制了任何相关脚本或`bili_dynamic_push`项目，则视为已接受此免责声明
+- `nfe-w` 保留随时更改或补充此免责声明的权利。一旦使用并复制了任何相关脚本或`bili_dynamic_push`项目，则视为已接受此免责声明
 - 本项目遵循`MIT LICENSE`协议，如果本声明与`MIT LICENSE`协议有冲突之处，以本声明为准
 
 ## 简介
 
 定时检测指定up的动态，如果发生变化进行推送
+
+## Docker（推荐）
+
+[![](https://img.shields.io/badge/DockerHub-nfew/bili__dynamic__push-367AC7?style=flat-square&logo=Docker&logoColor=white)](https://hub.docker.com/r/nfew/bili_dynamic_push)
+
+```sh
+# 启动容器
+docker run -d -v ~/config_bili.ini:/mnt/config_bili.ini --name bili_dynamic_push nfew/bili_dynamic_push:latest
+```
 
 ## 运行环境
 
@@ -53,6 +64,15 @@
 
 - `enable`是否启用钉钉bot推送
 - `access_token`机器人access_token，如果启用该推送，则必填
+
+(7)`push_feishu`下的参数
+- `enable`是否启用飞书推送
+- `app_id`飞书应用id，如果启用该推送，则必填，参考 https://open.feishu.cn/document/server-docs/api-call-guide/calling-process/get-access-token#95c7f5f5
+- `app_secret`飞书应用secret，如果启用该推送，则必填
+- `receive_id_type`飞书接收id类型，如果启用该推送，则必填，参考 https://open.feishu.cn/document/server-docs/im-v1/message/create
+- `receive_id`飞书接收id，如果启用该推送，则必填
+- `template_id`飞书消息模板id，如果启用该推送，则必填，参考 https://open.feishu.cn/document/server-docs/im-v1/message-content-description/create_json#11e75d0
+
 
 #### 2.安装第三方库
 
